@@ -1,27 +1,29 @@
-//------------------------------------------------------------------------------
-// <copyright file="Program.cs" company="Universidad Católica del Uruguay">
-//     Copyright (c) Programación II. Derechos reservados.
-// </copyright>
-//------------------------------------------------------------------------------
-
 using System;
 using Library;
 
-namespace Project
+namespace Ucu.Poo.Vehiculos
 {
-    /// <summary>
-    /// Programa principal.
-    /// </summary>
     public static class Program
     {
-        /// <summary>
-        /// Punto de entrada al programa principal.
-        /// </summary>
         public static void Main()
         {
-            Train train = new Train();
-            train.StartEngines();
-            Console.WriteLine("Hello World!");
+            Vehiculo electrico = MetodosDeCreacion.CrearElectrico(
+                        "Tesla",
+                        "Model E");
+            Vehiculo combustion = MetodosDeCreacion.CrearCombustion(
+                        "Ford",
+                        "Focus");
+            Console.WriteLine("=== VEHÍCULO ELÉCTRICO ===");
+            Console.WriteLine(electrico.MostrarEstado());
+            Console.WriteLine(electrico.Encender());
+            Console.WriteLine(electrico.Frenar());
+            Console.WriteLine(electrico.Apagar());
+            Console.WriteLine();
+            Console.WriteLine("=== VEHÍCULO COMBUSTIÓN ===");
+            Console.WriteLine(combustion.MostrarEstado());
+            Console.WriteLine(combustion.Encender());
+            Console.WriteLine(combustion.Frenar());
+            Console.WriteLine(combustion.Apagar());
         }
     }
 }
